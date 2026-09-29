@@ -28,6 +28,7 @@ function getInputs() {
 }
 
 function setStatus(message, isError = false) {
+  statusEl.classList.remove("loading");
   statusEl.textContent = message;
   statusEl.classList.toggle("error", isError);
 }
@@ -44,17 +45,17 @@ function el(tag, text, className) {
   return node;
 }
 
-function listSection(heading, items, ordered = false, className = "") {
-  const section = el("section", "", className);
-  section.append(el("h3", heading));
-  const list = el(ordered ? "ol" : "ul");
-  items.forEach((item) => list.append(el("li", item)));
-  section.append(list);
-  return section;
+function listSection(heading, items, { ordered = false, section = "", list = "" } = {}) {
+  const wrapper = el("section", "", section);
+  wrapper.append(el("h3", heading));
+  const listEl = el(ordered ? "ol" : "ul", "", list);
+  items.forEach((item) => listEl.append(el("li", item)));
+  wrapper.append(listEl);
+  return wrapper;
 }
 
-function textSection(heading, text) {
-  const section = el("section");
+function textSection(heading, text, className = "") {
+  const section = el("section", "", className);
   section.append(el("h3", heading));
   section.append(el("p", text));
   return section;
@@ -64,18 +65,18 @@ function renderActivity(activity) {
   resultEl.replaceChildren();
   const title = el("h2", activity.title);
   title.id = "result-title";
-  resultEl.append(title, el("p", activity.intro));
-  if (activity.supplies.length) resultEl.append(listSection("What you'll need", activity.supplies));
-  resultEl.append(listSection("Steps", activity.steps, true));
-  if (activity.safety.length) resultEl.append(listSection("Safety", activity.safety, false, "safety"));
-  if (activity.ifFrustrated) resultEl.append(textSection("If they get frustrated", activity.ifFrustrated));
+  resultEl.append(title, el("p", activity.intro, "intro"));
+  if (activity.supplies.length) {
+    resultEl.append(listSection("What you'll need", activity.supplies, { list: "pills" }));
+  }
+  resultEl.append(listSection("Steps", activity.steps, { ordered: true, list: "steps" }));
+  if (activity.safety.length) {
+    resultEl.append(listSection("Safety", activity.safety, { section: "safety" }));
+  }
+  if (activity.ifFrustrated) {
+    resultEl.append(textSection("If they get frustrated", activity.ifFrustrated, "tip"));
+  }
   if (activity.adapt) resultEl.append(textSection("Make it easier or harder", activity.adapt));
-  const printNote = el(
-    "p",
-    "AI-generated suggestion. Adapt to the person and check with their care team.",
-    "print-only"
-  );
-  resultEl.append(printNote);
   resultEl.hidden = false;
   actionsEl.hidden = false;
 }
@@ -90,7 +91,8 @@ async function requestActivity(includePrevious) {
   if (!includePrevious) previousTitles = [];
 
   setBusy(true);
-  setStatus(`Creating an idea about ${inputs.topic}…`);
+  setStatus(`Creating an idea about ${inputs.topic}`);
+  statusEl.classList.add("loading");
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
