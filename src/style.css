@@ -1,0 +1,494 @@
+:root {
+  --cream: #fbf6ee;
+  --paper: #fffdf9;
+  --ink: #26221e;
+  --muted: #5b534b;
+  --teal: #14595a;
+  --teal-dark: #0e4243;
+  --teal-soft: #e3f0ed;
+  --sun: #f2b56b;
+  --clay: #9a4224;
+  --amber-bg: #fff3dc;
+  --amber-line: #b7791f;
+  --line: #ddd2c2;
+  --field-line: #7a6f63;
+  --shadow: 0 1px 2px rgba(38, 34, 30, 0.06), 0 8px 24px rgba(38, 34, 30, 0.08);
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 118.75%; /* 19px base for easier reading */
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.6;
+  text-align: left;
+}
+
+a {
+  color: var(--teal);
+  text-underline-offset: 3px;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--teal);
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+
+.skip-link:focus {
+  left: 0;
+  z-index: 10;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background:
+    radial-gradient(60% 120% at 90% 0%, rgba(242, 181, 107, 0.35), transparent 60%),
+    linear-gradient(180deg, var(--teal-soft), var(--cream));
+  padding: 1.25rem 0 4.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.brand-mark {
+  width: 2.4rem;
+  height: 2.4rem;
+  flex: none;
+}
+
+.brand-name {
+  font-weight: 700;
+  color: var(--teal-dark);
+  letter-spacing: 0.01em;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 6vw, 2.9rem);
+  line-height: 1.15;
+  margin: 0 0 1rem;
+  color: var(--teal-dark);
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin: 0;
+  max-width: 34rem;
+}
+
+/* ---------- Cards and form ---------- */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-card {
+  margin-top: -3rem;
+}
+
+.field {
+  margin-bottom: 1.1rem;
+  flex: 1 1 200px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  min-height: 3.1rem;
+  padding: 0.5rem 0.9rem;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--field-line);
+  border-radius: 12px;
+}
+
+input::placeholder {
+  color: #6d645b;
+}
+
+:focus-visible {
+  outline: 3px solid #0b3d91;
+  outline-offset: 2px;
+}
+
+.personalize {
+  border-top: 1px dashed var(--line);
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+}
+
+.personalize h2 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.optional {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.hint {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- Chips ---------- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.9rem;
+  padding: 0.3rem 1.1rem 0.3rem 0.8rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  background: var(--teal-soft);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--teal);
+  background: #d3e8e4;
+}
+
+.chip svg,
+.disclaimer svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Buttons ---------- */
+.button {
+  min-height: 3.1rem;
+  padding: 0.5rem 1.5rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--teal-dark);
+  background: var(--paper);
+  border: 2px solid var(--teal);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--teal-soft);
+}
+
+.button.primary {
+  color: #fff;
+  background: var(--teal);
+  width: 100%;
+  font-size: 1.05rem;
+}
+
+.button.primary:hover {
+  background: var(--teal-dark);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+/* ---------- Status ---------- */
+.status {
+  min-height: 1.6rem;
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+  color: var(--teal-dark);
+}
+
+.status.error {
+  color: #8a1c1c;
+}
+
+.status.loading::after {
+  content: "";
+  display: inline-block;
+  width: 1.4em;
+  text-align: left;
+  animation: dots 1.4s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0% { content: ""; }
+  25% { content: "."; }
+  50% { content: ".."; }
+  75% { content: "..."; }
+}
+
+/* ---------- Result ---------- */
+.result {
+  border-top: 6px solid var(--sun);
+  padding: 1.75rem 1.5rem;
+}
+
+.result h2 {
+  font-family: var(--serif);
+  font-size: 1.85rem;
+  line-height: 1.2;
+  margin: 0 0 0.6rem;
+  color: var(--teal-dark);
+}
+
+.result .intro {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+
+.result h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  margin: 1.6rem 0 0.6rem;
+  color: var(--teal-dark);
+}
+
+.pills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pills li {
+  background: var(--teal-soft);
+  border-radius: 999px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.92rem;
+}
+
+.steps {
+  list-style: none;
+  counter-reset: step;
+  margin: 0;
+  padding: 0;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 0.15rem 0 0.9rem 3rem;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.result .safety {
+  background: var(--amber-bg);
+  border-left: 6px solid var(--amber-line);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  margin-top: 1.6rem;
+}
+
+.result .safety h3 {
+  margin-top: 0;
+}
+
+.safety ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.result .tip {
+  background: var(--teal-soft);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  margin-top: 1.2rem;
+}
+
+.result .tip h3 {
+  margin-top: 0;
+}
+
+.result .tip p,
+.result section p {
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Disclaimer and footer ---------- */
+.disclaimer {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.disclaimer svg {
+  margin-top: 0.15rem;
+  color: var(--clay);
+}
+
+.disclaimer p {
+  margin: 0;
+}
+
+.site-footer {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-top: 0.5rem;
+  padding-bottom: 3rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.15rem;
+  }
+
+  .hero {
+    padding-bottom: 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media print {
+  html {
+    font-size: 100%;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .skip-link,
+  .hero,
+  #activity-form,
+  #status,
+  #result-actions,
+  .site-footer {
+    display: none !important;
+  }
+
+  .card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .result {
+    border-top: none;
+  }
+
+  .result .safety {
+    border: 2px solid #000;
+    background: #fff;
+  }
+
+  .result .tip,
+  .pills li {
+    background: #fff;
+    border: 1px solid #666;
+  }
+
+  .steps li::before {
+    background: #fff;
+    color: #000;
+    border: 2px solid #000;
+  }
+
+  .disclaimer {
+    border: none;
+    color: #000;
+  }
+}

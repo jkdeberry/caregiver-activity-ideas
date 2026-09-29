@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#14595a" />
+    <meta
+      name="description"
+      content="Simple, dignified activity ideas for caregivers of older adults, including people with memory changes."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='24' fill='%2314595a'/%3E%3Ccircle cx='24' cy='21' r='8' fill='%23f2b56b'/%3E%3Cpath d='M6 36c6-8 12-10 18-10s12 2 18 10a24 24 0 0 1-36 0z' fill='%23fbf6ee'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Caregiver Activity Ideas</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#activity-form">Skip to the form</a>
+
+    <header class="hero">
+      <div class="wrap">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <circle cx="24" cy="24" r="24" fill="#14595a" />
+            <circle cx="24" cy="21" r="8" fill="#f2b56b" />
+            <path d="M6 36c6-8 12-10 18-10s12 2 18 10a24 24 0 0 1-36 0z" fill="#fbf6ee" />
+          </svg>
+          <span class="brand-name">Caregiver Activity Ideas</span>
+        </div>
+        <h1>Something good to do together, right now.</h1>
+        <p class="lead">
+          Simple, dignified activity ideas for older adults and people living with memory changes,
+          made for the family and care staff who love them.
+        </p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <form id="activity-form" class="card form-card" novalidate>
+        <div class="field">
+          <label for="topic">What do they enjoy?</label>
+          <input
+            type="text"
+            id="topic"
+            name="topic"
+            maxlength="80"
+            autocomplete="off"
+            required
+            placeholder="Music, gardening, old photos…"
+          />
+          <div class="chips" role="group" aria-label="Topic suggestions">
+            <button type="button" class="chip" data-topic="Music">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" /></svg>
+              Music
+            </button>
+            <button type="button" class="chip" data-topic="Gardening">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22V12" /><path d="M12 12C12 8 9 5 4 5c0 4 3 7 8 7z" /><path d="M12 14c0-3 2-6 8-6 0 4-3 6-8 6z" /></svg>
+              Gardening
+            </button>
+            <button type="button" class="chip" data-topic="Family photos">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2" /><circle cx="9" cy="10" r="2" /><path d="m21 16-5-5L5 20" /></svg>
+              Family photos
+            </button>
+            <button type="button" class="chip" data-topic="Cooking">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 11h16v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z" /><path d="M2 11h20" /><path d="M9 7c0-1.5 1-2 1-3M14 7c0-1.5 1-2 1-3" /></svg>
+              Cooking
+            </button>
+            <button type="button" class="chip" data-topic="Faith">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z" /><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z" /></svg>
+              Faith
+            </button>
+          </div>
+        </div>
+
+        <div class="personalize">
+          <h2>Make it fit them <span class="optional">(all optional)</span></h2>
+          <div class="row">
+            <div class="field">
+              <label for="ability">How are they doing today?</label>
+              <select id="ability" name="ability">
+                <option value="">Not sure / skip</option>
+                <option value="independent">Active and independent</option>
+                <option value="some_help">Needs some help</option>
+                <option value="a_lot_of_help">Needs a lot of help</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="setting">Where?</label>
+              <select id="setting" name="setting">
+                <option value="">Skip</option>
+                <option value="home">At home</option>
+                <option value="facility">In a facility</option>
+                <option value="group">With a group</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="time">How much time?</label>
+              <select id="time" name="time">
+                <option value="">Skip</option>
+                <option value="10">About 10 minutes</option>
+                <option value="30">About 30 minutes</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="about">Tell us about them</label>
+            <input
+              type="text"
+              id="about"
+              name="about"
+              maxlength="200"
+              autocomplete="off"
+              placeholder="Was a teacher, loves birds, likes to stay busy"
+            />
+            <p class="hint">
+              Helps the idea feel personal. Please don't enter full names or medical details.
+              Nothing you type is saved.
+            </p>
+          </div>
+        </div>
+
+        <button type="submit" class="button primary" id="submit-button">Get an idea</button>
+      </form>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+
+      <article id="result" class="card result" hidden tabindex="-1" aria-labelledby="result-title"></article>
+
+      <div id="result-actions" class="actions" hidden>
+        <button type="button" class="button" id="another-button">Try another</button>
+        <button type="button" class="button" id="copy-button">Copy</button>
+        <button type="button" class="button" id="print-button">Print</button>
+      </div>
+
+      <aside class="disclaimer" id="disclaimer">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /><path d="M12 8v5M12 16.5v.01" /></svg>
+        <p>
+          <strong>Please note:</strong> These ideas are created by AI and are only suggestions. Every
+          person is different, so adapt them to what they enjoy and can safely do, and check with their
+          care team if you are unsure. This is not medical advice.
+        </p>
+      </aside>
+    </main>
+
+    <footer class="wrap site-footer">
+      Built by <a href="https://github.com/jkdeberry" target="_blank" rel="noopener">Jeanine DeBerry</a>.
+      <a href="https://github.com/jkdeberry/caregiver-activity-ideas" target="_blank" rel="noopener">Open source on GitHub</a>.
+    </footer>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
