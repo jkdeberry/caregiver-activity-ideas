@@ -1,0 +1,301 @@
+:root {
+  --bg: #f3f9f8;
+  --card: #ffffff;
+  --text: #1c2626;
+  --muted: #465555;
+  --primary: #1a6462;
+  --primary-hover: #134b4a;
+  --border: #7aa5a3;
+  --chip: #dff0ee;
+  --warn-bg: #fff6e0;
+  --warn-border: #8a5a00;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 125%; /* 20px base for easier reading */
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+  text-align: left;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+
+.skip-link:focus {
+  left: 0;
+  z-index: 10;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+header {
+  margin-bottom: 1.25rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+}
+
+.tagline {
+  margin: 0;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.field {
+  margin-bottom: 1.1rem;
+  flex: 1 1 200px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.35rem;
+}
+
+.optional {
+  font-weight: normal;
+  color: var(--muted);
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+  border: 2px solid var(--muted);
+  border-radius: 10px;
+}
+
+:focus-visible {
+  outline: 3px solid #0b3d91;
+  outline-offset: 2px;
+}
+
+.hint {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.chip {
+  min-height: 2.75rem;
+  padding: 0.35rem 1rem;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--chip);
+  border: 2px solid var(--primary);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.chip:hover {
+  background: #c8e4e1;
+}
+
+.button {
+  min-height: 3rem;
+  padding: 0.5rem 1.4rem;
+  font: inherit;
+  font-weight: bold;
+  color: var(--primary);
+  background: #fff;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--chip);
+}
+
+.button.primary {
+  color: #fff;
+  background: var(--primary);
+  width: 100%;
+}
+
+.button.primary:hover {
+  background: var(--primary-hover);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.status {
+  min-height: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: bold;
+}
+
+.status.error {
+  color: #8a1c1c;
+}
+
+.result h2 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+}
+
+.result h3 {
+  font-size: 1.1rem;
+  margin: 1.25rem 0 0.4rem;
+}
+
+.result ul,
+.result ol {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.result li {
+  margin-bottom: 0.35rem;
+}
+
+.result .safety {
+  background: var(--warn-bg);
+  border-left: 6px solid var(--warn-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem 0.75rem 1rem;
+  margin-top: 1.25rem;
+}
+
+.result .safety h3 {
+  margin-top: 0;
+}
+
+.result .safety ul {
+  padding-left: 1.25rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.disclaimer {
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-top: 2px solid var(--border);
+  padding-top: 1rem;
+}
+
+footer {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 1.5rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.print-only {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media print {
+  html {
+    font-size: 100%;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .skip-link,
+  header .tagline,
+  #activity-form,
+  #status,
+  #result-actions,
+  footer {
+    display: none !important;
+  }
+
+  .card {
+    border: none;
+    padding: 0;
+  }
+
+  .result .safety {
+    border: 2px solid #000;
+    background: #fff;
+  }
+
+  .print-only {
+    display: block;
+  }
+
+  .disclaimer {
+    color: #000;
+  }
+}

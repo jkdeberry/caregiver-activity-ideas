@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Simple, dignified activity ideas for caregivers of older adults, including people with memory changes."
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Caregiver Activity Ideas</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#activity-form">Skip to the form</a>
+    <div class="container">
+      <header>
+        <h1>Caregiver Activity Ideas</h1>
+        <p class="tagline">
+          Simple, dignified things to do together, for older adults and people with memory changes.
+        </p>
+      </header>
+
+      <main>
+        <form id="activity-form" class="card" novalidate>
+          <div class="field">
+            <label for="topic">What would they enjoy?</label>
+            <input
+              type="text"
+              id="topic"
+              name="topic"
+              maxlength="80"
+              autocomplete="off"
+              required
+              placeholder="For example: music, gardening, old photos"
+            />
+            <div class="chips" role="group" aria-label="Topic suggestions">
+              <button type="button" class="chip" data-topic="Music">Music</button>
+              <button type="button" class="chip" data-topic="Gardening">Gardening</button>
+              <button type="button" class="chip" data-topic="Family photos">Family photos</button>
+              <button type="button" class="chip" data-topic="Cooking">Cooking</button>
+              <button type="button" class="chip" data-topic="Faith">Faith</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="ability">How are they doing today? <span class="optional">(optional)</span></label>
+              <select id="ability" name="ability">
+                <option value="">Not sure / skip</option>
+                <option value="independent">Active and independent</option>
+                <option value="some_help">Needs some help</option>
+                <option value="a_lot_of_help">Needs a lot of help</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="setting">Where? <span class="optional">(optional)</span></label>
+              <select id="setting" name="setting">
+                <option value="">Skip</option>
+                <option value="home">At home</option>
+                <option value="facility">In a facility</option>
+                <option value="group">With a group</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="time">Time available <span class="optional">(optional)</span></label>
+              <select id="time" name="time">
+                <option value="">Skip</option>
+                <option value="10">About 10 minutes</option>
+                <option value="30">About 30 minutes</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="about">About them <span class="optional">(optional)</span></label>
+            <input
+              type="text"
+              id="about"
+              name="about"
+              maxlength="200"
+              autocomplete="off"
+              placeholder="For example: was a teacher, loves birds, likes to be busy"
+            />
+            <p class="hint">
+              Helps make the idea more personal. Please don't enter full names or medical details.
+              Nothing you type is saved.
+            </p>
+          </div>
+
+          <button type="submit" class="button primary" id="submit-button">Get an idea</button>
+        </form>
+
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+
+        <article id="result" class="card result" hidden tabindex="-1" aria-labelledby="result-title"></article>
+
+        <div id="result-actions" class="actions" hidden>
+          <button type="button" class="button" id="another-button">Try another</button>
+          <button type="button" class="button" id="copy-button">Copy</button>
+          <button type="button" class="button" id="print-button">Print</button>
+        </div>
+
+        <p class="disclaimer" id="disclaimer">
+          <strong>Please note:</strong> These ideas are created by AI and are only suggestions. Every
+          person is different, so adapt them to what they enjoy and can safely do, and check with their
+          care team if you are unsure. This is not medical advice.
+        </p>
+      </main>
+
+      <footer>
+        Built by <a href="https://github.com/jkdeberry" target="_blank" rel="noopener">Jeanine DeBerry</a>.
+        <a href="https://github.com/jkdeberry/caregiver-activity-ideas" target="_blank" rel="noopener">Open source on GitHub</a>.
+      </footer>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
